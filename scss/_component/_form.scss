@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+/* */
+/* updated on 2017-03-30*/
+/**/
+
+button {
+  min-width: 5.2rem;
+  padding: 0 1rem;
+  margin: 1rem;
+  background-color: white;
+
+  cursor: pointer;
+}
+
+form {
+  div.input-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    padding: 0 1rem;
+    ~ div.input-group {
+      margin-top: 1rem;
+    }
+    & > span.lamp {
+      -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: .74rem;
+      background-color: $color-light;
+      & ~ input {
+        margin-left: 1rem;
+      }
+    }
+    & > input[type = "text"],
+    & > input[type = "password"] {
+      -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+
+      width: 100%;
+    }
+    label {
+      position: relative;
+
+      margin-left: 1rem;
+
+      color: $color-deep;
+      &[for] {
+        padding-left: 1.5rem;
+
+        cursor: pointer;
+        &::before {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+
+          width: .8rem;
+          height: .8rem;
+          border: 2px currentcolor solid;
+          margin: auto;
+
+          content: "";
+        }
+      }
+    }
+    input[type = "radio"] {
+      & + label[for] {
+        &::before,
+        &::after {
+          border-radius: 50%;
+        }
+      }
+    }
+    input[type = "radio"],
+    input[type = "checkbox"] {
+      display: none;
+      &:checked {
+        & + label[for] {
+          color: currentcolor;
+          &::before {
+            border: none;
+          }
+          &::after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            width: .8rem;
+            height: .8rem;
+            margin: auto;
+            background-color: currentColor;
+
+            color: $color-deep;
+
+            content: "";
+          }
+        }
+      }
+    }
+  }
+  div.dropdown {
+    position: relative;
+
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    & > button {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      margin: 0;
+
+      color: $color-deep;
+      & + ul.menu {
+        position: absolute;
+        top: 0;
+
+        display: none;
+
+        width: 100%;
+        background-color: white;
+
+        z-index: 100;
+      }
+    }
+  }
+}
